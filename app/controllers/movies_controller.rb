@@ -9,7 +9,8 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings()
     @ratings_to_show = params.ratings.each_key
-    @movies = Movie.with_ratings(@ratings_to_show)
+    @order_to_show = params.sorting.each_key
+    @movies = Movie.with_ratings(@ratings_to_show).with_order(@order_to_show).movies
   end
 
   def new

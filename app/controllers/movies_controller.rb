@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
 
     @ratings_to_show =
     unless params[:ratings].nil?
+      session[:ratings] = params[:ratings]
       params[:ratings].keys
     else
       unless session[:ratings].nil?
@@ -22,6 +23,7 @@ class MoviesController < ApplicationController
 
     @order_to_show = 
     unless params[:sorting].nil?
+      session[:sorting] = params[:sorting]
       params[:sorting].keys
     else
       unless session[:sorting].nil?
